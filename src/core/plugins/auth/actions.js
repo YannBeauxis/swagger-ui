@@ -113,7 +113,9 @@ export const authorizeApplication = ( auth ) => ( { authActions } ) => {
   }
   let form = {
     grant_type: "client_credentials",
-    scope: scopes.join(scopeSeparator)
+    scope: scopes.join(scopeSeparator),
+    client_id: clientId,
+    client_secret: clientSecret,
   }
 
   return authActions.authorizeRequest({body: buildFormData(form), name, url: schema.get("tokenUrl"), auth, headers })
